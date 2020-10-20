@@ -23,7 +23,7 @@ public class PaymentController {
     @PostMapping(value = "payment/create")
     public CommonResult create(Payment payment) {
         int result = paymentService.create(payment);
-        // 注意:mapper接口返回值依然是成功插入的记录数，但不同的是主键值已经赋值到领域模型实体的id中了
+        // 注意 mapper接口返回值依然是成功插入的记录数，但不同的是主键值已经赋值到领域模型实体的id中了
         log.info("插入结果: " + payment.getId());
         if (result > 0) {
             return new CommonResult(200, "插入成功", payment.getId());
